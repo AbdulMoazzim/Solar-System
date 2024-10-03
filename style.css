@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.main {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#loading-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.img-container {
+    margin-bottom: 100px;
+}
+
+.heading {
+    color: white;
+    font-size: 26px;
+    margin: 40px 0;
+}
+
+.loading-bar-container {
+    width: 40%;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loading-text,.loading-progress {
+    margin-top: 40px;
+    padding-left: 20px;
+    color: white;
+    font-size: 1.5em;
+}
+
+.loading-bar {
+    height: 100%;
+    background-color: #fff;
+    animation: loading-bar 3s linear infinite 0s;
+}
+
+.info-text {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 35%;
+    background-color: rgb(155, 155, 155);
+    z-index: 1000;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.info-text h1 {
+    text-align: center;
+    color: white;
+    font-size: 32px;
+    margin: 55px 0;
+}
+.info-text ul li {
+    list-style-position: inside;
+    padding: 0 0 10px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+}
+

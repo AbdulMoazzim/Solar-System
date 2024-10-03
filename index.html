@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Solar System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div id="loading-overlay">
+        <div class="img-container">
+          <img src="img/space.gif" alt="logo" />
+        </div>
+        <div class="heading">
+          <h1>Explore the Solar System!</h1>
+        </div>
+        <div class="loading-bar-container">
+          <div class="loading-bar"></div>
+        </div>
+        <p class="loading-text">
+          Loading: <span id="loading-progress">0%</span>
+        </p>
+      </div>
+
+      <div class="info-text">
+        <img src="img/close.png" alt="close" class="close-btn" />
+        <h1>Info</h1>
+        <ul>
+          <li>Click on planets, moons, or the sun to get information.</li>
+          <li>To return to exploration mode, press the ESC key.</li>
+        </ul>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="main.js" type="module" defer></script>
+  </body>
+</html>
