@@ -1,28 +1,29 @@
+html, body {
+    overflow: hidden;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    transition: transform 1s linear;
 }
 
-body {
-    overflow: hidden;
-}
 
 .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     z-index: 1000;
-    width: 100%;
-    height: 100%;
     background-color: black;
 }
 
 #loading-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,18 +31,19 @@ body {
     flex-direction: column;
 }
 
-.img-container {
-    margin-bottom: 100px;
+.img-container img {
+    width: 30vw;
 }
 
 .heading {
+    text-align: center;
     color: white;
     font-size: 26px;
     margin: 40px 0;
 }
 
 .loading-bar-container {
-    width: 40%;
+    width: 40vw;
     height: 20px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -49,48 +51,44 @@ body {
 }
 
 .loading-text,.loading-progress {
-    margin-top: 40px;
+    margin-top: 20px;
     padding-left: 20px;
     color: white;
-    font-size: 1.5em;
+    font-size: 24px;
 }
 
 .loading-bar {
-    height: 100%;
-    background-color: #fff;
+    background-color: #ffffff;
     animation: loading-bar 3s linear infinite 0s;
 }
 
 .info-text {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: 35%;
+    top: 0%;
+    left: 0%;
+    transform: translateY(-600px);
+    width: 30vw;
     background-color: rgb(155, 155, 155);
     z-index: 1000;
     border-radius: 10px;
     border: 2px solid white;
+    padding: 30px;
 }
 
 .info-text h1 {
     text-align: center;
     color: white;
     font-size: 32px;
-    margin: 55px 0;
+    margin: 20px 0;
 }
 .info-text ul li {
     list-style-position: inside;
-    padding: 0 0 10px 20px;
+    padding-bottom: 30px;
     color: white;
     font-size: 20px;
 }
 
-.close-btn {
+.close-btn1 {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -98,5 +96,43 @@ body {
     height: 30px;
     cursor: pointer;
     color: white;
+}
+
+#canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+#left, #right {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    border: 5px solid white;
+    border-radius: 10px;
+    background-color: rgba(155, 155, 155);
+    width: 30vw;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#left {
+    left: 0;
+}
+#right {
+    right: 0;
+}
+
+@media screen and (max-width: 750px){
+    .heading {
+        font-size: 18px;
+    }
+    .info-text ul li {
+        font-size: 16px;
+    }
+    .info-text {
+        width: 70vw;
+    }
 }
 
