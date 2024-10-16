@@ -3,40 +3,42 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 
-// Create loading overlay
-const loadingText = document.querySelector('#loading-progress');
-const loadingBar = document.querySelector('.loading-bar');
-const infoText = document.querySelector('.info-text');
-const closeBtn1 = document.querySelector('.close-btn1');
-const main = document.querySelector('.main');
-const left = document.querySelector('#left');
-const right = document.querySelector('#right');
+// // Create loading overlay
+// const loadingText = document.querySelector('#loading-progress');
+// const loadingBar = document.querySelector('.loading-bar');
+// const infoText = document.querySelector('.info-text');
+// const closeBtn1 = document.querySelector('.close-btn1');
+// const main = document.querySelector('.main');
+// const left = document.querySelector('#left');
+// const right = document.querySelector('#right');
+const names = document.querySelector('#namesBody');
+const close = document.querySelector('#close');
 
-let count = 0;
+// let count = 0;
 
-// Function to remove loading overlay
-async function removeLoadingOverlay() {
-    let interval = setInterval(() => {
-        count++;
-        loadingBar.style.width = `${count}%`;
-        loadingText.innerText = `${count}%`;
-        if (count === 100) {
-            main.style.display = 'none';
-            clearInterval(interval);
-        }
-    }, 30);
-}
+// // Function to remove loading overlay
+// async function removeLoadingOverlay() {
+//     let interval = setInterval(() => {
+//         count++;
+//         loadingBar.style.width = `${count}%`;
+//         loadingText.innerText = `${count}%`;
+//         if (count === 100) {
+//             main.style.display = 'none';
+//             clearInterval(interval);
+//         }
+//     }, 30);
+// }
 
 
-await removeLoadingOverlay();
+// await removeLoadingOverlay();
 
-setTimeout(() => {
-    infoText.style.transform = 'translateY(0px)';
-}, 5000);
+// setTimeout(() => {
+//     infoText.style.transform = 'translateY(0px)';
+// }, 5000);
 
-closeBtn1.addEventListener('click', () => {
-    infoText.style.transform = 'translateY(-600px)';
-});
+// closeBtn1.addEventListener('click', () => {
+//     infoText.style.transform = 'translateY(-600px)';
+// });
 
 // Create scene
 const scene = new THREE.Scene();
@@ -395,14 +397,20 @@ function resetCamera() {
     controls.update();
     left.style.display = 'none';
     right.style.display = 'none';
+    names.innerHTML = "Solar System";
 }
 
 // Event listener for the Escape key
 window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+        close.style.display = "none";
         resetCamera();
     }
 });
+close.addEventListener('click',()=>{
+    resetCamera();
+    close.style.display = "none";
+})
 
 const setCameraWithCelestialBody = (body,data) => {
     isOrbiting = true;
@@ -434,7 +442,7 @@ const setCameraWithCelestialBody = (body,data) => {
         return;
     }
   
-    const cameraDistance = bodyRadius * (isSun ? 3 : 6);
+    const cameraDistance = bodyRadius * (isSun ? 10 : (isMoon ? 7 : 10));
   
     // Initialize camera rotation angle
     let cameraRotationAngle = 0;
@@ -491,6 +499,7 @@ const setCameraWithCelestialBody = (body,data) => {
             bodyName = body.obj.planet.name.toLowerCase();
         } 
         bodyData = data[bodyName];
+        names.innerHTML = bodyName.toUpperCase();
     
         // Check if bodyData exists and is an array with at least 2 elements
         if (bodyData && Array.isArray(bodyData) && bodyData.length >= 2) {
@@ -532,6 +541,7 @@ function onMouseClick(event) {
           }
       }
   }
+  close.style.display = "block";
 }
 
 // Add click event listener to the renderer's DOM element

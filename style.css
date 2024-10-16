@@ -104,26 +104,45 @@ html, body {
 }
 
 #left, #right {
+    font-size: 22px;
     color: white;
-    padding: 10px;
     display: none;
     position: absolute;
     z-index: 1000;
-    border: 5px solid white;
-    border-radius: 10px;
-    background-color: rgba(155, 155, 155);
-    width: 30vw;
-    height: 50vh;
+    width: 35vw;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
+#namesBody {
+    font-size: 55px;
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+    color: white;
+    position: absolute;
+    top: 10%;
+    z-index: 1000;
+}
 #left {
+    padding-left: 50px;
     left: 0;
 }
 #right {
+    padding-right: 50px;
     right: 0;
+}
+
+#close {
+    right: 0;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+}
+#close img {
+    width: 50px;
 }
 
 @media screen and (max-width: 750px){
@@ -135,6 +154,16 @@ html, body {
     }
     .info-text {
         width: 70vw;
+    }
+    #left, #right {
+        font-size: 12px;
+    }
+    #left {
+        padding-left: 20px;
+    }
+    #right {
+        padding-left: 10px;
+        padding-right: 20px;
     }
 }
 

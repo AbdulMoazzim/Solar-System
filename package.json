@@ -14,5 +14,10 @@
   },
   "dependencies": {
     "three": "^0.169.0"
-  }
+  },
+  "description": "This project is a 3D interactive solar system built using Three.js, allowing users to explore the planets in a realistic virtual space. The solar system features rotating planets, orbits, and lighting effects to mimic real celestial motion. The 3D experience is enhanced using Vite for bundling and AI integration for planet descriptions.",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "keywords": []
 }
