@@ -3,42 +3,42 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 
-// // Create loading overlay
-// const loadingText = document.querySelector('#loading-progress');
-// const loadingBar = document.querySelector('.loading-bar');
-// const infoText = document.querySelector('.info-text');
-// const closeBtn1 = document.querySelector('.close-btn1');
-// const main = document.querySelector('.main');
-// const left = document.querySelector('#left');
-// const right = document.querySelector('#right');
+// Create loading overlay
+const loadingText = document.querySelector('#loading-progress');
+const loadingBar = document.querySelector('.loading-bar');
+const infoText = document.querySelector('.info-text');
+const closeBtn1 = document.querySelector('.close-btn1');
+const main = document.querySelector('.main');
+const left = document.querySelector('#left');
+const right = document.querySelector('#right');
 const names = document.querySelector('#namesBody');
 const close = document.querySelector('#close');
 
-// let count = 0;
+let count = 0;
 
-// // Function to remove loading overlay
-// async function removeLoadingOverlay() {
-//     let interval = setInterval(() => {
-//         count++;
-//         loadingBar.style.width = `${count}%`;
-//         loadingText.innerText = `${count}%`;
-//         if (count === 100) {
-//             main.style.display = 'none';
-//             clearInterval(interval);
-//         }
-//     }, 30);
-// }
+// Function to remove loading overlay
+async function removeLoadingOverlay() {
+    let interval = setInterval(() => {
+        count++;
+        loadingBar.style.width = `${count}%`;
+        loadingText.innerText = `${count}%`;
+        if (count === 100) {
+            main.style.display = 'none';
+            clearInterval(interval);
+        }
+    }, 30);
+}
 
 
-// await removeLoadingOverlay();
+await removeLoadingOverlay();
 
-// setTimeout(() => {
-//     infoText.style.transform = 'translateY(0px)';
-// }, 5000);
+setTimeout(() => {
+    infoText.style.transform = 'translateY(0px)';
+}, 5000);
 
-// closeBtn1.addEventListener('click', () => {
-//     infoText.style.transform = 'translateY(-600px)';
-// });
+closeBtn1.addEventListener('click', () => {
+    infoText.style.transform = 'translateY(-600px)';
+});
 
 // Create scene
 const scene = new THREE.Scene();
