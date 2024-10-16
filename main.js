@@ -17,7 +17,7 @@ const close = document.querySelector('#close');
 let count = 0;
 
 // Function to remove loading overlay
-async function removeLoadingOverlay() {
+function removeLoadingOverlay() {
     let interval = setInterval(() => {
         count++;
         loadingBar.style.width = `${count}%`;
@@ -30,7 +30,7 @@ async function removeLoadingOverlay() {
 }
 
 
-await removeLoadingOverlay();
+removeLoadingOverlay();
 
 setTimeout(() => {
     infoText.style.transform = 'translateY(0px)';
